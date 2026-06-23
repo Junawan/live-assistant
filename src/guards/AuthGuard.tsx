@@ -21,9 +21,9 @@ export default function AuthGuard({
   } = useAuth();
 
   useEffect(() => {
-    if (!loading && !isAuthenticated) {
-      router.replace("/login");
-    }
+    //if (!loading && !isAuthenticated) {
+      //router.replace("/login");
+    //}
   }, [loading, isAuthenticated, router]);
 
   if (loading) {
