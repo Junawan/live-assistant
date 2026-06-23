@@ -11,15 +11,11 @@ interface UpdateProductForm {
 
   title: string;
 
-  sku?: string;
-
-  price: number;
-
-  stock?: number;
-
   image: string;
 
-  description: string;
+  productInfo: string;
+
+  notes: string;
 
   teleprompterText: string;
 
@@ -41,7 +37,23 @@ export function useUpdateProduct() {
 
       setError(null);
 
-      await updateProductUseCase.execute(data);
+      await updateProductUseCase.execute({
+  productId: data.productId,
+
+  categoryId: data.categoryId,
+
+  title: data.title,
+
+  image: data.image,
+
+  productInfo: data.productInfo,
+
+  notes: data.notes,
+
+  teleprompterText: data.teleprompterText,
+
+  active: data.active,
+});
 
       return true;
     } catch (err) {

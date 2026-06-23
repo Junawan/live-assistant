@@ -73,11 +73,6 @@ export class RegisterUseCase {
 
     console.log("STEP 7");
 
-    await this.playlistRepository.createDefault({
-      companyId,
-    });
-
-    console.log("STEP 8");
   } catch (error) {
     console.error(error);
 

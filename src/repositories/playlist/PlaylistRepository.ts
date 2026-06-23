@@ -120,6 +120,21 @@ export class PlaylistRepository extends BaseRepository<Playlist> {
 
   }
 
+  async countByCompany(
+  companyId: string
+): Promise<number> {
+
+  const q = query(
+    collection(db, this.collectionName),
+    where("companyId", "==", companyId)
+  );
+
+  const snapshot = await getDocs(q);
+
+  return snapshot.size;
+
+}
+
   async findAll(): Promise<Playlist[]> {
       const snapshot = await getDocs(
         collection(db, this.collectionName)
