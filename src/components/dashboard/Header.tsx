@@ -23,9 +23,9 @@ const {
   async function handleLogout() {
   const success = await logout();
 
-  //if (success) {
-    //router.replace("/login");
-  //}
+  if (success) {
+    router.replace("/login");
+  }
 }
 
   return (

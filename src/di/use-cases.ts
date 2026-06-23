@@ -26,6 +26,8 @@ import { GetProductsByIdsUseCase } from "@/use-cases/product/GetProductsByIdsUse
 import { GetPlaylistUseCase } from "@/use-cases/playlist/GetPlaylistUseCase";
 import { AddProductToPlaylistUseCase } from "@/use-cases/playlist/AddProductToPlaylistUseCase";
 import { GetPlaylistByIdUseCase } from "@/use-cases/playlist/GetPlaylistByIdUseCase";
+import { firebaseAuthRepository } from "@/repositories/auth/FirebaseAuthRepository";
+import { LoginUseCase } from "@/use-cases/auth/LoginUseCase";
 
 export const registerUseCase =
   new RegisterUseCase(
@@ -118,4 +120,9 @@ export const deletePlaylistUseCase =
   export const getPlaylistByIdUseCase =
   new GetPlaylistByIdUseCase(
     playlistRepository
+  );
+
+export const loginUseCase =
+  new LoginUseCase(
+    firebaseAuthRepository
   );
